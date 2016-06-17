@@ -13,8 +13,8 @@
 To build a gem called Scoreboard which displays the scores from yesterday's MLB games.
 
 ## Behavior ##
-1. User types in 'mlb scores'
-2. Scores are listed
+1. User types in 'scores'
+2. Scores from previous day are listed within CLI
 3. User is able to type 'exit' to exit CLI
 
 ## Extendability ##
