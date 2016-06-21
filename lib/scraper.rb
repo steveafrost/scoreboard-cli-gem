@@ -1,8 +1,8 @@
 class Scoreboard::Scraper
   
-  def games_scrape
+  def self.scrape_games
     all_games = []
-    scraped = Nokogiri::HTML(open("http://espn.go.com/mlb/scoreboard"))
+    scraped_games = Nokogiri::HTML(open("http://espn.go.com/mlb/scoreboard"))
   end
   
 end

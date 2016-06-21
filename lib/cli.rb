@@ -2,7 +2,7 @@
 
 class Scoreboard::CLI
   
-  @@options = ["Scores", "Standings"]
+  # @@options = ["Scores", "Standings"]
   
   def start
     welcome
@@ -19,32 +19,32 @@ class Scoreboard::CLI
   def menu
     user_input = nil
     while user_input != "exit"
-      options
+      list_games
+      print "\nPlease enter the number of the game to see the details or type exit: "
       user_input = gets.strip
-      case user_input
-      when "1"
-        scores
-      when "2"
-        standings
+      if user_input.to_i > 0
+        box_score(user_input)
+      elsif user_input == "list"
+        list_games
       end
     end
   end
   
-  def options
-    puts "\nPlease enter a number to choose an option or type exit\n"
-    @@options.each_with_index do |option, index|
-      puts "#{index + 1}. #{option}"
-    end
-    puts "\n"
-  end
-  
-  def scores
+  def list_games
+    puts "\nToday's Games Around the MLB"
     @scores = Scoreboard::Scores.today
+    @scores.each.with_index do |score, index|
+      puts "#{index + 1}. #{score.teams}"
+    end
   end
   
-  def standings
+  def box_score(user_input)
     puts "\n"
-    puts "These are standings"
+    print @scores[user_input.to_i - 1].teams
+    print " | Runs: #{@scores[user_input.to_i - 1].runs}"
+    print " | Hits: #{@scores[user_input.to_i - 1].hits}"
+    print " | Errors: #{@scores[user_input.to_i - 1].errors}"
+    puts "\n"
   end
   
   def goodbye
