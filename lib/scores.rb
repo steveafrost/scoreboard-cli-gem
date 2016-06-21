@@ -11,13 +11,14 @@ class Scoreboard::Scores
     puts "Washington Nationals 9"
     puts "------------------------"
     
-    # first_score = self.new
-    # first_score.teams = "Tigers, Royals"
-    # first_score.runs = "1, 0"
-    # first_score.hits = "10, 15"
-    # first_score.errors = "1, 0"
-    # first_score.time = "1:05PM"
-
+    first_score = self.new
+    first_score.teams = "Tigers, Royals"
+    first_score.runs = "1, 0"
+    first_score.hits = "10, 15"
+    first_score.errors = "1, 0"
+    first_score.time = "1:05PM"
+    
+    first_score
   end
   
 end
