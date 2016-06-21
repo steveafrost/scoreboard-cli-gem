@@ -1,3 +1,0 @@
-module Scoreboard
-  # Your code goes here...
-end

@@ -14,9 +14,19 @@ To build a gem called Scoreboard which displays the scores from yesterday's MLB 
 
 ## Behavior ##
 1. User types in 'scores'
-2. Scores from previous day are listed within CLI
+2. All matches are listed from previous day
+3. User selects team and game is displayed
 3. User is able to type 'exit' to exit CLI
+
+## What is a score? ##
+* A score has teams
+* A score has a time
+* A score has runs, hits, and errors
 
 ## Extendability ##
 * The gem will later be extended to include a way to get scores from one team for their last 7 games. If this is able to be programmed while building the primary objective, it will be incorporated.
 * Several other sports to be included at a later date
+
+## Other Notes ##
+* self.today interates through scoreboard and displays each score
+* Does each score need to be an object?
