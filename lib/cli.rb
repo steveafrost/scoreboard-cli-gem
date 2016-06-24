@@ -2,8 +2,6 @@
 
 class Scoreboard::CLI
   
-  # @@options = ["Scores", "Standings"]
-  
   def start
     welcome
     menu
@@ -22,6 +20,7 @@ class Scoreboard::CLI
       list_games
       print "\nPlease enter the number of the game to see the details or type exit: "
       user_input = gets.strip
+      
       if user_input.to_i > 0
         box_score(user_input)
       elsif user_input == "list"
@@ -33,8 +32,8 @@ class Scoreboard::CLI
   def list_games
     puts "\nToday's Games Around the MLB"
     @scores = Scoreboard::Scores.today
-    @scores.each.with_index do |score, index|
-      puts "#{index + 1}. #{score.teams}"
+    @scores.each.with_index(1) do |score, index|
+      puts "#{index}. #{score.teams}"
     end
   end
   
