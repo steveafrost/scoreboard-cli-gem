@@ -4,6 +4,7 @@ PATH
     scoreboard (1.0.0)
       json
       nokogiri
+      terminal-table
 
 GEM
   remote: https://rubygems.org/
@@ -36,6 +37,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     slop (3.6.0)
+    terminal-table (1.6.0)
 
 PLATFORMS
   ruby

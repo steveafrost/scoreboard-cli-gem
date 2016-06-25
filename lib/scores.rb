@@ -36,8 +36,9 @@ class Scoreboard::Scores
   end
   
   def self.scrape_teams(i)
-    home_team = @each_game[i]["home_team_name"]
-    away_team = @each_game[i]["away_team_name"]
+    team = []
+    team << @each_game[i]["home_team_name"]
+    team << @each_game[i]["away_team_name"]
   end
   
   def self.scrape_time(i)
@@ -46,21 +47,24 @@ class Scoreboard::Scores
   end
   
   def self.scrape_runs(i)
-    home_r = @each_game[i]["linescore"]["r"]["home"]
-    away_r = @each_game[i]["linescore"]["r"]["away"]
-    "#{home_r} #{away_r}"
+    runs = []
+    runs << @each_game[i]["linescore"]["r"]["home"]
+    runs << @each_game[i]["linescore"]["r"]["away"]
+    runs
   end
   
   def self.scrape_hits(i)
-    home_h = @each_game[i]["linescore"]["h"]["home"]
-    away_h = @each_game[i]["linescore"]["h"]["away"]
-    "#{home_h} #{away_h}"
+    hits = []
+    hits << @each_game[i]["linescore"]["h"]["home"]
+    hits << @each_game[i]["linescore"]["h"]["away"]
+    hits
   end
   
   def self.scrape_errors(i)
-    home_e = @each_game[i.to_i - 1]["linescore"]["e"]["home"]
-    away_e = @each_game[i.to_i - 1]["linescore"]["e"]["away"]
-    "#{home_e} #{away_e}"
+    errors = []
+    errors << @each_game[i.to_i - 1]["linescore"]["e"]["home"]
+    errors << @each_game[i.to_i - 1]["linescore"]["e"]["away"]
+    errors
   end
   
 end

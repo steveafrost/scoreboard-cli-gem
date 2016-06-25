@@ -42,17 +42,29 @@ class Scoreboard::CLI
   def box_score(user_input)
     user_input = user_input.to_i - 1
     
-    @teams = Scoreboard::Scores.scrape_teams(user_input)
-    @runs = Scoreboard::Scores.scrape_runs(user_input)
-    @hits = Scoreboard::Scores.scrape_hits(user_input)
-    @errors = Scoreboard::Scores.scrape_errors(user_input)
+    teams = Scoreboard::Scores.scrape_teams(user_input)
+    runs = Scoreboard::Scores.scrape_runs(user_input)
+    hits = Scoreboard::Scores.scrape_hits(user_input)
+    errors = Scoreboard::Scores.scrape_errors(user_input)
+    home_line = [teams[0], runs[0], hits[0], errors[0]]
+    away_line = [teams[1], runs[1], hits[1], errors[1]]
+    
+    rows = []
+    rows << home_line
+    rows << away_line
+    
+    table = Terminal::Table.new :headings => ['Team', 'R', 'H', 'E'], :rows => rows
 
-    puts "\n"
-    print @matchups[user_input]
-    print " | Runs: #{@runs}"
-    print " | Hits: #{@hits}"
-    print " | Errors: #{@errors}"
-    puts "\n"
+    puts table
+    
+    puts "\nWould you like to see other games or exit?"
+    user_input = gets.strip
+    if user_input == "exit"
+      exit
+    else
+      menu
+    end
+    
   end
   
   def goodbye
