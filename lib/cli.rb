@@ -33,8 +33,8 @@ class Scoreboard::CLI
   
   def list_games
     puts "\nToday's Games Around the MLB"
-    @scores = Scoreboard::Scores.today
-    @scores.each.with_index(1) do |matchup, index|
+    @matchups = Scoreboard::Scores.today
+    @matchups.each.with_index(1) do |matchup, index|
       puts "#{index}. #{matchup}"
     end
   end
@@ -44,10 +44,10 @@ class Scoreboard::CLI
     @hits = Scoreboard::Scores.scrape_hits(user_input)
     @errors = Scoreboard::Scores.scrape_errors(user_input)
     puts "\n"
-    print @scores[user_input.to_i - 1]
+    print @matchups[user_input.to_i - 1]
     print " | Runs: #{@runs}"
-    print " | Hits: #{@scores[user_input.to_i - 1].hits}"
-    print " | Errors: #{@scores[user_input.to_i - 1].errors}"
+    print " | Hits: #{@hits}"
+    print " | Errors: #{@errors}"
     puts "\n"
   end
   
