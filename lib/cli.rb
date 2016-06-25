@@ -40,11 +40,14 @@ class Scoreboard::CLI
   end
   
   def box_score(user_input)
+    user_input = user_input.to_i - 1
+    
     @runs = Scoreboard::Scores.scrape_runs(user_input)
     @hits = Scoreboard::Scores.scrape_hits(user_input)
     @errors = Scoreboard::Scores.scrape_errors(user_input)
+    
     puts "\n"
-    print @matchups[user_input.to_i - 1]
+    print @matchups[user_input]
     print " | Runs: #{@runs}"
     print " | Hits: #{@hits}"
     print " | Errors: #{@errors}"

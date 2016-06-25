@@ -8,12 +8,22 @@ class Scoreboard::Scores
   
   def self.scrape_matchups
     teams = []
-    #find a way to set date dynamically on end of string
-    doc = Nokogiri::HTML(open("http://m.mlb.com/gdcross/components/game/mlb/year_2016/month_06/day_24/master_scoreboard.json"))
     
+    #clock to get current day so that we get scores on the current day
+    time = Time.new
+    day = time.strftime("%d")
+    month = time.strftime("%m")
+    year = time.strftime("%Y")
+    
+    #scrape of all matchups
+    url = "http://m.mlb.com/gdcross/components/game/mlb/year_#{year}/month_#{month}/day_#{day}/master_scoreboard.json"
+    doc = Nokogiri::HTML(open(url))
+    
+    #parsing the data down to the specific key values we need
     data_hash = JSON.parse(doc)
     @each_game = data_hash["data"]["games"]["game"]
     
+    #loop through games, shovel teams into array, format array into quality string for CLI
     i = 0
     while i < @each_game.length
       home_team = @each_game[i]["home_team_name"]
@@ -21,29 +31,29 @@ class Scoreboard::Scores
       teams << "#{home_team} vs #{away_team}"
       i += 1
     end
-    
+  
     teams
   end
   
   def self.scrape_teams(i)
-    home_team = @each_game[i.to_i - 1]["home_team_name"]
-    away_team = @each_game[i.to_i - 1]["away_team_name"]
+    home_team = @each_game[i]["home_team_name"]
+    away_team = @each_game[i]["away_team_name"]
   end
   
   def self.scrape_time(i)
-    time = @each_game[i.to_i - 1]["time"]
+    time = @each_game[i]["time"]
     "#{time}"
   end
   
   def self.scrape_runs(i)
-    home_r = @each_game[i.to_i - 1]["linescore"]["r"]["home"]
-    away_r = @each_game[i.to_i - 1]["linescore"]["r"]["away"]
+    home_r = @each_game[i]["linescore"]["r"]["home"]
+    away_r = @each_game[i]["linescore"]["r"]["away"]
     "#{home_r} #{away_r}"
   end
   
   def self.scrape_hits(i)
-    home_h = @each_game[i.to_i - 1]["linescore"]["h"]["home"]
-    away_h = @each_game[i.to_i - 1]["linescore"]["h"]["away"]
+    home_h = @each_game[i]["linescore"]["h"]["home"]
+    away_h = @each_game[i]["linescore"]["h"]["away"]
     "#{home_h} #{away_h}"
   end
   

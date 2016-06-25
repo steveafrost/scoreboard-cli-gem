@@ -13,9 +13,8 @@
 To build a gem called Scoreboard which displays the scores from yesterday's MLB games.
 
 ## Behavior ##
-1. User types in 'scores'
-2. All matches are listed from previous day
-3. User selects a number and that game is displayed with runs, hits, errors, and a winner. Start with winner
+2. All matches are listed from current day
+3. User selects a number and that game is displayed with runs, hits, errors
 3. User is able to type 'exit' to exit CLI
 
 ## What is a score? ##
