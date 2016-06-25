@@ -6,7 +6,7 @@ require 'version'
 Gem::Specification.new do |spec|
   spec.name          = "mlb_scoreboard"
   spec.version       = MLBScoreboard::VERSION
-  spec.authors       = ["steveafrost"]
+  spec.authors       = ["Steve Frost"]
   spec.email         = ["ffrostt@gmail.com"]
 
   spec.summary       = "Access matchups and box scores from the official MLB API"
