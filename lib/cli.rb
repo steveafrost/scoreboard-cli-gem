@@ -1,8 +1,4 @@
-# CLI Controller
-
 class Scoreboard::CLI
-  
-  attr_accessor :teams, :runs, :hits, :errors
   
   def start
     welcome
@@ -21,11 +17,11 @@ class Scoreboard::CLI
     while user_input != "exit"
       list_games
       print "\nPlease enter the number of the game to see the details or type exit: "
-      user_input = gets.strip
+      user_input = gets.strip.to_i
       
-      if user_input.to_i > 0
+      if user_input > 0 && user_input <= @matchups.length
         box_score(user_input)
-      elsif user_input == "list"
+      else
         list_games
       end
     end
@@ -57,7 +53,7 @@ class Scoreboard::CLI
 
     puts table
     
-    puts "\nWould you like to see other games or exit?"
+    puts "\nWould you like to see the list again or exit?"
     user_input = gets.strip
     if user_input == "exit"
       exit
