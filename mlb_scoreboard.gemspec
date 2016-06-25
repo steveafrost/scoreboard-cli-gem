@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ffrostt@gmail.com"]
 
   spec.summary       = "Access matchups and box scores from the official MLB API"
-  spec.description   = "Once installed, running bin/mlbscoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program."
+  spec.description   = "Once installed, running bin/mlb_scoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program."
   spec.homepage      = "https://github.com/steveafrost/scoreboard-cli-gem"
   spec.license       = "MIT"
 
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_runtime_dependency "terminal-table"
-  spec.add_runtime_dependency "nokogiri"
-  spec.add_runtime_dependency "json"
+  spec.add_runtime_dependency "terminal-table", "~> 1.6.0"
+  spec.add_runtime_dependency "nokogiri", "~>1.6.8"
+  spec.add_runtime_dependency "json", "~> 1.8.3"
 end

@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     mlb_scoreboard (0.1.0)
-      json
-      nokogiri
-      terminal-table
+      json (~> 1.8.3)
+      nokogiri (~> 1.6.8)
+      terminal-table (~> 1.6.0)
 
 GEM
   remote: https://rubygems.org/

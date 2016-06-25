@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-Once installed, running bin/scoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program.
+Once installed, running bin/mlb_scoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program.
 
 ## Development
 
