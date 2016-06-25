@@ -1,6 +1,6 @@
 # Scoreboard
 
-This gem scrapes and displays yesterday's MLB matchups and their details including hits, runs, and errors.
+This gem scrapes and displays yesterday's MLB matchups and their details including hits, runs, and errors from the official MLB API.
 
 Future version plans
 1. Display scores from a day input by user.
@@ -12,7 +12,7 @@ Future version plans
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'scoreboard'
+gem 'mlb_scoreboard'
 ```
 
 And then execute:
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install scoreboard
+    $ gem install mlb_scoreboard
 
 ## Usage
 

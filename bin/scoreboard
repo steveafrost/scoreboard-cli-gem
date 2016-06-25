@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require './lib/environment.rb'
 
-Scoreboard::CLI.new.start
+MLBScoreboard::CLI.new.start

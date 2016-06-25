@@ -1,4 +1,4 @@
-class Scoreboard::Scores
+class MLBScoreboard::Matchups
   
   attr_accessor :teams, :runs, :hits, :errors, :time
   

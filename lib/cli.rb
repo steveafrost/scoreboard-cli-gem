@@ -1,4 +1,4 @@
-class Scoreboard::CLI
+class MLBScoreboard::CLI
   
   def start
     welcome
@@ -7,9 +7,9 @@ class Scoreboard::CLI
   end
   
   def welcome
-    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
-    puts "*~* Welcome to Scoreboard *~*"
-    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+    puts "*~* Welcome to MLB Scoreboard *~*"
+    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
   
   def menu
@@ -20,6 +20,8 @@ class Scoreboard::CLI
     
     if user_input > 0 && user_input <= @matchups.length
       box_score(user_input)
+    elsif user_input > @matchups.length
+      menu
     elsif user_input == "exit"
       exit
     else
@@ -29,7 +31,7 @@ class Scoreboard::CLI
   
   def list_games
     puts "\nYesterday's Games Around the MLB"
-    @matchups = Scoreboard::Scores.today
+    @matchups = MLBScoreboard::Matchups.today
     @matchups.each.with_index(1) do |matchup, index|
       puts "#{index}. #{matchup}"
     end
@@ -38,10 +40,10 @@ class Scoreboard::CLI
   def box_score(user_input)
     user_input = user_input.to_i - 1
     
-    teams = Scoreboard::Scores.scrape_teams(user_input)
-    runs = Scoreboard::Scores.scrape_runs(user_input)
-    hits = Scoreboard::Scores.scrape_hits(user_input)
-    errors = Scoreboard::Scores.scrape_errors(user_input)
+    teams = MLBScoreboard::Matchups.scrape_teams(user_input)
+    runs = MLBScoreboard::Matchups.scrape_runs(user_input)
+    hits = MLBScoreboard::Matchups.scrape_hits(user_input)
+    errors = MLBScoreboard::Matchups.scrape_errors(user_input)
     home_line = [teams[0], runs[0], hits[0], errors[0]]
     away_line = [teams[1], runs[1], hits[1], errors[1]]
     
