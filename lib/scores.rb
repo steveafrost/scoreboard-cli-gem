@@ -9,24 +9,30 @@ class Scoreboard::Scores
   def self.scrape_scores
     scores = []
 
-    doc = Nokogiri::HTML(open("http://espn.go.com/mlb/scoreboard"))
+    #find a way to set date dynamically on end of string
+    doc = Nokogiri::HTML(open("http://m.mlb.com/gdcross/components/game/mlb/year_2016/month_06/day_24/master_scoreboard.json"))
+    
+    data_hash = JSON.parse(doc)
+    each_game = data_hash["data"]["games"]["game"][1] #change index
+    
+    # need iterations
+    home_teams = each_game["home_team_name"]
+    away_teams = each_game["away_team_name"]
+    
+    time = each_game["time"]
+    
+    home_r = each_game["linescore"]["r"]["home"]
+    away_r = each_game["linescore"]["r"]["away"]
+    
+    home_h = each_game["linescore"]["h"]["home"]
+    away_h = each_game["linescore"]["h"]["away"]
+    
+    home_e = each_game["linescore"]["e"]["home"]
+    away_e = each_game["linescore"]["e"]["away"]
+    
     binding.pry
     
-    # first_score = self.new
-    # first_score.teams = "Tigers, Royals"
-    # first_score.runs = "1, 0"
-    # first_score.hits = "10, 15"
-    # first_score.errors = "1, 0"
-    # first_score.time = "1:05PM"
-    # 
-    # second_score = self.new
-    # second_score.teams = "Cubs, Nationals"
-    # second_score.runs = "15, 9"
-    # second_score.hits = "20, 18"
-    # second_score.errors = "0, 0"
-    # second_score.time = "7:15PM"
-    # 
-    # scores
+    scores
   end
   
 end
