@@ -5,6 +5,6 @@ require 'json'
 require 'pry'
 
 require 'bundler/setup'
-require 'scoreboard/version.rb'
+require 'version.rb'
 require 'cli.rb'
 require 'scores.rb'

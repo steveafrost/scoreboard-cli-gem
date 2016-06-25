@@ -13,17 +13,17 @@ class Scoreboard::CLI
   end
   
   def menu
-    user_input = nil
-    while user_input != "exit"
+    list_games
+    puts "\n"
+    puts "Please enter the number of the game to see the details or type exit: "
+    user_input = gets.strip.to_i
+    
+    if user_input > 0 && user_input <= @matchups.length
+      box_score(user_input)
+    elsif user_input == "exit"
+      exit
+    else
       list_games
-      print "\nPlease enter the number of the game to see the details or type exit: "
-      user_input = gets.strip.to_i
-      
-      if user_input > 0 && user_input <= @matchups.length
-        box_score(user_input)
-      else
-        list_games
-      end
     end
   end
   
