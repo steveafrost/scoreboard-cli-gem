@@ -1,8 +1,11 @@
 # Scoreboard
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/scoreboard`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem scrapes and displays yesterday's MLB matchups and their details including hits, runs, and errors.
 
-TODO: Delete this and the text above, and describe your gem
+Future version plans
+1. Display scores from a day input by user.
+2. Display the last 7 games of a team input by user.
+3. Ability to show the league standings and drill down into division standings.
 
 ## Installation
 
@@ -22,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed, running bin/scoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program.
 
 ## Development
 
@@ -32,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/scoreboard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/steveafrost/scoreboard-cli-gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
