@@ -2,6 +2,8 @@
 
 class Scoreboard::CLI
   
+  attr_accessor :teams, :runs, :hits, :errors
+  
   def start
     welcome
     menu
@@ -32,15 +34,18 @@ class Scoreboard::CLI
   def list_games
     puts "\nToday's Games Around the MLB"
     @scores = Scoreboard::Scores.today
-    @scores.each.with_index(1) do |score, index|
-      puts "#{index}. #{score.teams}"
+    @scores.each.with_index(1) do |matchup, index|
+      puts "#{index}. #{matchup}"
     end
   end
   
   def box_score(user_input)
+    @runs = Scoreboard::Scores.scrape_runs(user_input)
+    @hits = Scoreboard::Scores.scrape_hits(user_input)
+    @errors = Scoreboard::Scores.scrape_errors(user_input)
     puts "\n"
-    print @scores[user_input.to_i - 1].teams
-    print " | Runs: #{@scores[user_input.to_i - 1].runs}"
+    print @scores[user_input.to_i - 1]
+    print " | Runs: #{@runs}"
     print " | Hits: #{@scores[user_input.to_i - 1].hits}"
     print " | Errors: #{@scores[user_input.to_i - 1].errors}"
     puts "\n"
