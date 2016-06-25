@@ -9,8 +9,8 @@ class Scoreboard::Scores
   def self.scrape_matchups
     teams = []
     
-    #clock to get current day so that we get scores on the current day
-    time = Time.new
+    #clock to get previous day so that we get those day's scores
+    time = DateTime.now - 1
     day = time.strftime("%d")
     month = time.strftime("%m")
     year = time.strftime("%Y")
@@ -23,7 +23,7 @@ class Scoreboard::Scores
     data_hash = JSON.parse(doc)
     @each_game = data_hash["data"]["games"]["game"]
     
-    #loop through games, shovel teams into array, format array into quality string for CLI
+    #loop through games, shovel teams into array, format array into quality string for user display
     i = 0
     while i < @each_game.length
       home_team = @each_game[i]["home_team_name"]

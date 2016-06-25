@@ -32,7 +32,7 @@ class Scoreboard::CLI
   end
   
   def list_games
-    puts "\nToday's Games Around the MLB"
+    puts "\nYesterday's Games Around the MLB"
     @matchups = Scoreboard::Scores.today
     @matchups.each.with_index(1) do |matchup, index|
       puts "#{index}. #{matchup}"
@@ -42,10 +42,11 @@ class Scoreboard::CLI
   def box_score(user_input)
     user_input = user_input.to_i - 1
     
+    @teams = Scoreboard::Scores.scrape_teams(user_input)
     @runs = Scoreboard::Scores.scrape_runs(user_input)
     @hits = Scoreboard::Scores.scrape_hits(user_input)
     @errors = Scoreboard::Scores.scrape_errors(user_input)
-    
+
     puts "\n"
     print @matchups[user_input]
     print " | Runs: #{@runs}"
