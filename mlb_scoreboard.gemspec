@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Steve Frost"]
   spec.email         = ["ffrostt@gmail.com"]
 
-  spec.summary       = "MLB Scoreboard is a CLI program that displays matchups and box scores from the official MLB API"
+  spec.summary       = "MLB Scoreboard is a CLI em that displays matchups and box scores from the official MLB API. Use bin/mlb_scoreboard to load all MLB matchups from the previous day. To see more details about a matchup, enter the corresponding matchup number. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program."
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/steveafrost/scoreboard-cli-gem"
   spec.license       = "MIT"
