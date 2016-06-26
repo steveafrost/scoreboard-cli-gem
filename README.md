@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-Once installed, running bin/mlb_scoreboard will load all MLB matchups from the previous day. The user can then type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program.
+Once installed, include mlb_scoreboard in your app by using `require 'mlb_scoreboard'` in your environment. After it is required, use MLBScoreboard::CLI.new.start to start the CLI or use MLBScoreboard::Matchups.today to directly access the list of matchups. Upon the matchups being listed, the user can type a number that corresponds to a matchup and see more details about that matchup in a formatted table. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program.
 
 ## Development
 

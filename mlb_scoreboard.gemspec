@@ -9,12 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Steve Frost"]
   spec.email         = ["ffrostt@gmail.com"]
 
-  spec.summary       = "MLB Scoreboard is a CLI gem that displays matchups and box scores from the official MLB API. Use bin/mlb_scoreboard to load all MLB matchups from the previous day. To see more details about a matchup, enter the corresponding matchup number. The details include hits, runs, and errors. At any time the user can type 'exit' to exit the program."
+  spec.summary       = "MLB Scoreboard displays matchups and box scores from the official MLB API. See GitHub or included README.md for more information."
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/steveafrost/scoreboard-cli-gem"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|pkg)/}) }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
