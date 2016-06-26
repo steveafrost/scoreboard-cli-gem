@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require './lib/mlb_scoreboard.rb'
+require_relative '../lib/mlb_scoreboard.rb'
 
 MLBScoreboard::CLI.new.start
