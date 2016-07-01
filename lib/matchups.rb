@@ -6,9 +6,7 @@ class MLBScoreboard::Matchups
     self.scrape_matchups
   end
   
-  def self.scrape_matchups
-    teams = []
-    
+  def self.url_constructor
     #clock to get previous day so that we get those day's scores
     time = DateTime.now - 1
     day = time.strftime("%d")
@@ -16,7 +14,11 @@ class MLBScoreboard::Matchups
     year = time.strftime("%Y")
     
     #scrape of all matchups
-    url = "http://m.mlb.com/gdcross/components/game/mlb/year_#{year}/month_#{month}/day_#{day}/master_scoreboard.json"
+    "http://m.mlb.com/gdcross/components/game/mlb/year_#{year}/month_#{month}/day_#{day}/master_scoreboard.json"
+  end
+  
+  def self.scrape_matchups
+    url = self.url_constructor
     doc = Nokogiri::HTML(open(url))
     
     #parsing the data down to the specific key values we need
@@ -24,15 +26,12 @@ class MLBScoreboard::Matchups
     @each_game = data_hash["data"]["games"]["game"]
     
     #loop through games, shovel teams into array, format array into quality string for user display
-    i = 0
-    while i < @each_game.length
-      home_team = @each_game[i]["home_team_name"]
-      away_team = @each_game[i]["away_team_name"]
-      teams << "#{home_team} vs #{away_team}"
-      i += 1
+    @each_game.collect do |game|
+      home_team = game["home_team_name"]
+      away_team = game["away_team_name"]
+      "#{home_team} vs #{away_team}"
     end
   
-    teams
   end
   
   def self.scrape_teams(i)

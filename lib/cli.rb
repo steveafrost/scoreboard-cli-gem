@@ -1,5 +1,5 @@
 class MLBScoreboard::CLI
-  
+
   def start
     welcome
     menu
@@ -70,5 +70,6 @@ class MLBScoreboard::CLI
     puts "*~* Thanks for using Scoreboard *~*"
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
+  
   
 end
