@@ -1,5 +1,3 @@
-[![Gem Version](https://badge.fury.io/rb/mlb_scoreboard@2x.png)](https://badge.fury.io/rb/mlb_scoreboard)
-
 ![MLBScoreboardLogo](http://steveafrost.com/assets/mlbscoreboardghlogo.jpg)
 # MLB Scoreboard
 
