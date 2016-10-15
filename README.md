@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/mlb_scoreboard@2x.png)](https://badge.fury.io/rb/mlb_scoreboard)
+
+![MLBScoreboardLogo](http://steveafrost.com/assets/mlbscoreboardghlogo.jpg)
 # MLB Scoreboard
 
 This gem scrapes and displays yesterday's MLB matchups and their details including hits, runs, and errors from the official MLB API.
