@@ -1,4 +1,4 @@
-![MLBScoreboardLogo](http://steveafrost.com/assets/mlbscoreboardghlogo.jpg)
+![MLBScoreboardLogo](https://steveafrost.com/assets/img/blogs/mlbscoreboardghlogo.jpg)
 # MLB Scoreboard
 
 This gem scrapes and displays yesterday's MLB matchups and their details including hits, runs, and errors from the official MLB API.
